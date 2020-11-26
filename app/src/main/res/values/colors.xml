@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorWhiteEnd">#F4F4F4</color>
+    <color name="colorWhiteStart">#EAE7E7</color>
+    <color name="colorGreyWhite">#5E5E5E</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorArtistFont">#2E2E2E</color>
+    <color name="colorNotSelect">#2E2E2E</color>
+    <color name="colorSelect">#5E5E5E</color>
+    <color name="colorSeekBarLine">#706F6F</color>
+    <color name="colorSeekBarLineNotProcess">#D3D3D3</color>
+    <color name="colorSeekBarEnd">#303030</color>
+    <color name="colorSeekBarStart">#494545</color>
+    <color name="colorButtonContrast">#2E2E2E</color>
+</resources>
