@@ -15,7 +15,13 @@ public class Song {
         this.duration = duration;
     }
 
-    public Song() {}
+    public Song() {
+        this.title = null;
+        this.artist = null;
+        this.path = null;
+        this.album = null;
+        this.duration = null;
+    }
 
     public String getTitle() {
         return title;

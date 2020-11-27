@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -29,6 +30,7 @@ public class SongsListActivity extends AppCompatActivity {
     public static ArrayList<Song> songArrayList;
     RecyclerView recyclerView;
     SongsAdapter songsAdapter;
+    TextView countOfSongs;
     ImageButton buttonBackHome;
 
 
@@ -38,13 +40,17 @@ public class SongsListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_songs_list);
 
         recyclerView = findViewById(R.id.recyclerview);
+        countOfSongs = findViewById(R.id.countOfSongs);
         recyclerView.setHasFixedSize(true);
+
         if (!(songArrayList.size() < 1)) {
             songsAdapter = new SongsAdapter(this, songArrayList);
             recyclerView.setAdapter(songsAdapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL,
                     false));
         }
+        String songCount = songsAdapter.getItemCount() + " songs";
+        countOfSongs.setText(songCount);
 
         addListenerOnButton();
 
