@@ -10,7 +10,7 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:id="@+id/musicImage"
-        android:src="@drawable/music_note_ic"
+        android:src="@mipmap/ic_launcher_round"
         android:padding="15dp"
         />
     <TextView
