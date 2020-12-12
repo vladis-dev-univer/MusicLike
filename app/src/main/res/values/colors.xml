@@ -15,5 +15,6 @@
     <color name="colorSeekBarLineNotProcess">#D3D3D3</color>
     <color name="colorSeekBarEnd">#303030</color>
     <color name="colorSeekBarStart">#494545</color>
+    <color name="colorImageView">#2E2E2E</color>
     <color name="colorButtonContrast">#2E2E2E</color>
 </resources>

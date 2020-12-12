@@ -3,6 +3,8 @@
     package="by.bsuir.musiclike">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,8 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".activities.AlbumDetailActivity"></activity>
         <activity
-            android:name=".view.SongActivity"
+            android:name=".activities.SongActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -22,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.AlbumsActivity"
+            android:name=".activities.AlbumsActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -32,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.SongsListActivity"
+            android:name=".activities.SongsListActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -42,7 +45,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.MainActivity"
+            android:name=".activities.MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -51,8 +54,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>

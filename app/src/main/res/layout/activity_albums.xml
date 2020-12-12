@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
-    tools:context=".view.AlbumsActivity">
+    tools:context=".activities.AlbumsActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -21,6 +21,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_album"
+        android:layout_width="match_parent"
+        android:layout_height="670dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

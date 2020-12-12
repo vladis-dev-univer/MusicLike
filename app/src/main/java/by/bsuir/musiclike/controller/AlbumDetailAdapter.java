@@ -19,31 +19,34 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import by.bsuir.musiclike.R;
-import by.bsuir.musiclike.models.Song;
 import by.bsuir.musiclike.activities.SongActivity;
+import by.bsuir.musiclike.models.Song;
 
-public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.MyViewHolder> {
+public class AlbumDetailAdapter extends RecyclerView.Adapter<AlbumDetailAdapter.MyViewHolderAlbumDetail> {
 
     private Context mContext;
-    private ArrayList<Song> songs;
+    private List<Song> albumSongs;
 
-    public SongsAdapter(Context mContext, ArrayList<Song> songs) {
+    public AlbumDetailAdapter(Context mContext, List<Song> albumSongs) {
         this.mContext = mContext;
-        this.songs = songs;
+        this.albumSongs = albumSongs;
     }
+
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolderAlbumDetail onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_song, parent, false);
-        return new MyViewHolder(view);
+        return new MyViewHolderAlbumDetail(view);
     }
 
+
     @Override
-    public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
-        Song song = songs.get(position);
+    public void onBindViewHolder(@NonNull MyViewHolderAlbumDetail holder, final int position) {
+        Song song = albumSongs.get(position);
         if (song != null) {
             holder.fileName.setText(song.getName());
             holder.fileArtist.setText(song.getArtist());
@@ -61,27 +64,20 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.MyViewHolder
                     .into(holder.albumArt);
 
         }
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, SongActivity.class);
-                intent.putExtra("position", position);
-                mContext.startActivity(intent);
-            }
-        });
+
     }
 
     @Override
     public int getItemCount() {
-        return songs.size();
+        return albumSongs.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
+    public static class MyViewHolderAlbumDetail extends RecyclerView.ViewHolder {
         TextView fileName, fileArtist;
         ImageView albumArt;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolderAlbumDetail(@NonNull View itemView) {
             super(itemView);
             fileName = itemView.findViewById(R.id.musicFileName);
             fileArtist = itemView.findViewById(R.id.musicFileArtist);

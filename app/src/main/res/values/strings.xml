@@ -7,9 +7,16 @@
     <string name="home_songs">Songs</string>
     <string name="home_albums">Albums</string>
     <string name="play_now">Play Now</string>
-    <string name="_0_00">00:00</string>
+    <string name="_0_00">0:00</string>
     <string name="_1_29">01:29</string>
     <string name="play_song_test">PLAY SONG TEST</string>
-    <string name="file_name">File Name</string>
+    <string name="file_name_song">File Name song</string>
+    <string name="file_artist_song">File Artist song</string>
     <string name="count_songs">10000 songs</string>
+    <string name="title_song">This song name</string>
+    <string name="title_artist_song">This song artist</string>
+    <string name="unkown_album_name">Unkown</string>
+    <string name="unkown_album_artist">Unkown</string>
+    <string name="count_album_songs">10 songs</string>
+    <string name="album_name">name</string>
 </resources>

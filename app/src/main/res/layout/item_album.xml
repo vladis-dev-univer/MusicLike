@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/albumItem"
+    android:layout_width="150dp"
+    android:layout_height="190dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="15dp"
+    app:cardCornerRadius="20dp"
+    card_view:cardElevation="2dp"
+    card_view:cardMaxElevation="1dp"
+    app:cardBackgroundColor="@color/colorWhite"
+    android:outlineAmbientShadowColor="@color/colorGreyWhite">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/album_image"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/colorWhite"
+            android:src="@mipmap/ic_launcher"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/album_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:singleLine="true"
+            android:text="@string/unkown_album_name"
+            android:textColor="@color/colorButtonContrast"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

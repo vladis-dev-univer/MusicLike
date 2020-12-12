@@ -1,30 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/audioItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorWhite"
     android:layout_marginTop="5dp"
-    android:id="@+id/audioItem">
+    android:background="@color/colorWhite">
 
     <ImageView
+        android:id="@+id/musicImage"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:id="@+id/musicImage"
-        android:src="@mipmap/ic_launcher_round"
+        android:contentDescription="@string/app_song"
         android:padding="15dp"
-        />
+        android:src="@mipmap/ic_launcher_round"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
+        android:id="@+id/musicFileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/file_name"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_toEndOf="@+id/musicImage"
+        android:layout_toRightOf="@+id/musicImage"
+        android:paddingTop="25dp"
+        android:text="@string/file_name_song"
         android:textColor="@color/colorBlack"
         android:textStyle="bold"
-        android:layout_toEndOf="@+id/musicImage"
+        app:layout_constraintStart_toEndOf="@+id/musicImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/musicFileArtist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/musicFileName"
         android:layout_marginStart="15dp"
-        android:layout_centerVertical="true"
-        android:id="@+id/musicFileName"/>
+        android:layout_marginLeft="15dp"
+        android:layout_toEndOf="@+id/musicImage"
+        android:layout_toRightOf="@+id/musicImage"
+        android:text="@string/file_artist_song"
+        android:textColor="@color/colorGreyWhite"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/musicImage"
+        app:layout_constraintTop_toBottomOf="@+id/musicFileName" />
 
 
-
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
