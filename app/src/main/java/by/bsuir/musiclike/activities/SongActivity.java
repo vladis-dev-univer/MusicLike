@@ -22,6 +22,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.ArrayList;
 
 import by.bsuir.musiclike.R;
+import by.bsuir.musiclike.controller.AlbumDetailAdapter;
 import by.bsuir.musiclike.models.Song;
 
 import static by.bsuir.musiclike.activities.SongsListActivity.songs;
@@ -40,7 +41,7 @@ public class SongActivity extends AppCompatActivity {
     SeekBar seekBarTime,
             seekBarVolume;
     int position = -1;
-    private ArrayList<Song> listSongs = songs;
+    private ArrayList<Song> listSongs;
     static MediaPlayer mediaPlayer;
 
     @Override
@@ -48,6 +49,13 @@ public class SongActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song);
 
+        String sender = getIntent().getStringExtra("sender");
+
+        if(sender != null && sender.equals("albumDetails")){
+            listSongs = AlbumDetailAdapter.albumSongs;
+        } else {
+            listSongs = songs;
+        }
         initView();
 
         getIntentMethod();

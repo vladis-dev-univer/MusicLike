@@ -5,15 +5,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import by.bsuir.musiclike.R;
 import by.bsuir.musiclike.controller.SongsAdapter;
@@ -25,7 +30,7 @@ public class SongsListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     SongsAdapter songsAdapter;
     TextView countOfSongs;
-    ImageButton buttonBackHome;
+    ImageButton buttonBackHome, buttonMenu;
 
 
     @Override
@@ -51,10 +56,15 @@ public class SongsListActivity extends AppCompatActivity {
 
     }
 
-
     public void addListenerOnButton() {
         buttonBackHome = findViewById(R.id.buttonBackHome);
-
+        buttonMenu = findViewById(R.id.imageButtonMenuAltPlayNow);
+        buttonMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMenu(v);
+            }
+        });
         buttonBackHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +72,52 @@ public class SongsListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void showMenu(View v) {
+        PopupMenu menu = new PopupMenu(this, v);
+
+        menu.inflate(R.menu.sort_item_menu);
+
+        menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.by_name:
+                        Collections.sort(songs, Song.songNameComparator);
+                        recreate();
+                        return true;
+                    case R.id.by_date:
+                        Collections.sort(songs, Song.songDateAddComparator);
+                        recreate();
+                        return true;
+                    case R.id.by_size:
+                        Collections.sort(songs, Song.songSizeComparator);
+                        recreate();
+                        return true;
+                    case R.id.by_duration:
+                        Collections.sort(songs, Song.songDurationComparator);
+                        recreate();
+                        return true;
+                    case R.id.by_artist:
+                        Collections.sort(songs, Song.songArtistComparator);
+                        recreate();
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
+
+        menu.setOnDismissListener(new PopupMenu.OnDismissListener() {
+            @Override
+            public void onDismiss(PopupMenu menu) {
+                Toast.makeText(getApplicationContext(), "Ready",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        menu.show();
     }
 
 

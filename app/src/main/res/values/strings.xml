@@ -19,4 +19,10 @@
     <string name="unkown_album_artist">Unkown</string>
     <string name="count_album_songs">10 songs</string>
     <string name="album_name">name</string>
+    <string name="sort_by">Sort by</string>
+    <string name="sort_by_name">Name</string>
+    <string name="sort_by_date">Date</string>
+    <string name="sort_by_size">Size</string>
+    <string name="sort_by_duration">Duration</string>
+    <string name="sort_by_artist">Artist</string>
 </resources>

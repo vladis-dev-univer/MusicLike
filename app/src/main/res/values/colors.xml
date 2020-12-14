@@ -11,6 +11,8 @@
     <color name="colorArtistFont">#2E2E2E</color>
     <color name="colorNotSelect">#2E2E2E</color>
     <color name="colorSelect">#5E5E5E</color>
+    <color name="colorNotSelectWhite">#FFFFFF</color>
+    <color name="colorSelectWhite">#DCDCDC</color>
     <color name="colorSeekBarLine">#706F6F</color>
     <color name="colorSeekBarLineNotProcess">#D3D3D3</color>
     <color name="colorSeekBarEnd">#303030</color>

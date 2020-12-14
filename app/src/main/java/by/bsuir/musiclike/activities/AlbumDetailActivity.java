@@ -32,7 +32,7 @@ public class AlbumDetailActivity extends AppCompatActivity {
     TextView albumNameText, countOfSonsText;
     String albumName;
     AlbumDetailAdapter albumDetailAdapter;
-    List<Song> albumSongs = new ArrayList<>();
+    ArrayList<Song> albumSongs = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -28,11 +28,11 @@ import by.bsuir.musiclike.models.Song;
 public class AlbumDetailAdapter extends RecyclerView.Adapter<AlbumDetailAdapter.MyViewHolderAlbumDetail> {
 
     private Context mContext;
-    private List<Song> albumSongs;
+    public static ArrayList<Song> albumSongs;
 
-    public AlbumDetailAdapter(Context mContext, List<Song> albumSongs) {
+    public AlbumDetailAdapter(Context mContext, ArrayList<Song> albumSongs) {
         this.mContext = mContext;
-        this.albumSongs = albumSongs;
+        AlbumDetailAdapter.albumSongs = albumSongs;
     }
 
 
@@ -62,6 +62,15 @@ public class AlbumDetailAdapter extends RecyclerView.Adapter<AlbumDetailAdapter.
                             .crossFade()
                     )
                     .into(holder.albumArt);
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, SongActivity.class);
+                        intent.putExtra("sender", "albumDetails");
+                        intent.putExtra("position", position);
+                        mContext.startActivity(intent);
+                    }
+                });
 
         }
 

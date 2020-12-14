@@ -17,8 +17,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import by.bsuir.musiclike.R;
 import by.bsuir.musiclike.models.DataReader;
@@ -29,11 +27,8 @@ import static by.bsuir.musiclike.activities.SongsListActivity.songs;
 public class MainActivity extends AppCompatActivity {
 
     public static final int REQUEST_CODE = 1;
-    private static String[] PERMISSIONS_STORAGE = {
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
-    };
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == REQUEST_CODE) {
@@ -103,33 +99,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void start() {
         songs = DataReader.getAllAudio(this);
 
     }
-//    private void permission() {
-//        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-//                != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(MainActivity.this, PERMISSIONS_STORAGE,
-//                    REQUEST_CODE);
-//        } else {
-//            songs = DataReader.getAllAudio(this);
-//        }
-//    }
-//
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        if (requestCode == REQUEST_CODE) {
-//            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-////                Toast.makeText(this, "Permission Granted !", Toast.LENGTH_SHORT).show();
-//                songs = DataReader.getAllAudio(this);
-//            } else {
-//                ActivityCompat.requestPermissions(MainActivity.this, PERMISSIONS_STORAGE,
-//                        REQUEST_CODE);
-//            }
-//        }
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//    }
-
 
 }

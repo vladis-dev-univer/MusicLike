@@ -1,16 +1,11 @@
 package by.bsuir.musiclike.models;
 
-import android.graphics.Bitmap;
-import android.os.Parcelable;
-
-import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Song {
     private long id;
-    private String name, album, artist, path, AlbumArt;
+    private String name, album, artist, path, size, duration, date_add;
     private long albumID;
-    private int im;
-    private Bitmap songImage;
 
     public Song() {
     }
@@ -55,14 +50,6 @@ public class Song {
         this.path = path;
     }
 
-    public String getAlbumArt() {
-        return AlbumArt;
-    }
-
-    public void setAlbumArt(String albumArt) {
-        AlbumArt = albumArt;
-    }
-
     public long getAlbumID() {
         return albumID;
     }
@@ -71,80 +58,63 @@ public class Song {
         this.albumID = albumID;
     }
 
-    public int getIm() {
-        return im;
+    public String getDate_add() {
+        return date_add;
     }
 
-    public void setIm(int im) {
-        this.im = im;
+    public void setDate_add(String date_add) {
+        this.date_add = date_add;
     }
 
-    public Bitmap getSongImage() {
-        return songImage;
+    public String getDuration() {
+        return duration;
     }
 
-    public void setSongImage(Bitmap songImage) {
-        this.songImage = songImage;
+    public void setDuration(String duration) {
+        this.duration = duration;
     }
-    //    private String title;
-//    private String artist;
-//    private String path;
-//    private String album;
-//    private String duration;
-//
-//    public Song(String title, String artist, String path, String album, String duration) {
-//        this.title = title;
-//        this.artist = artist;
-//        this.path = path;
-//        this.album = album;
-//        this.duration = duration;
-//    }
-//
-//    public Song() {
-//        this.title = null;
-//        this.artist = null;
-//        this.path = null;
-//        this.album = null;
-//        this.duration = null;
-//    }
-//
-//    public String getTitle() {
-//        return title;
-//    }
-//
-//    public void setTitle(String title) {
-//        this.title = title;
-//    }
-//
-//    public String getArtist() {
-//        return artist;
-//    }
-//
-//    public void setArtist(String artist) {
-//        this.artist = artist;
-//    }
-//
-//    public String getPath() {
-//        return path;
-//    }
-//
-//    public void setPath(String path) {
-//        this.path = path;
-//    }
-//
-//    public String getAlbum() {
-//        return album;
-//    }
-//
-//    public void setAlbum(String album) {
-//        this.album = album;
-//    }
-//
-//    public String getDuration() {
-//        return duration;
-//    }
-//
-//    public void setDuration(String duration) {
-//        this.duration = duration;
-//    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public static Comparator<Song> songNameComparator = new Comparator<Song>() {
+        @Override
+        public int compare(Song o1, Song o2) {
+            return o1.getName().toUpperCase().compareTo(o2.getName().toUpperCase());
+        }
+    };
+
+    public static Comparator<Song> songArtistComparator = new Comparator<Song>() {
+        @Override
+        public int compare(Song o1, Song o2) {
+            return o1.getArtist().toUpperCase().compareTo(o2.getArtist().toUpperCase());
+        }
+    };
+
+    public static Comparator<Song> songSizeComparator = new Comparator<Song>() {
+        @Override
+        public int compare(Song o1, Song o2) {
+            return o1.getSize().toUpperCase().compareTo(o2.getSize().toUpperCase());
+        }
+    };
+
+    public static Comparator<Song> songDurationComparator = new Comparator<Song>() {
+        @Override
+        public int compare(Song o1, Song o2) {
+            return o1.getDuration().toUpperCase().compareTo(o2.getDuration().toUpperCase());
+        }
+    };
+
+    public static Comparator<Song> songDateAddComparator = new Comparator<Song>() {
+        @Override
+        public int compare(Song o1, Song o2) {
+            return o1.getDate_add().toUpperCase().compareTo(o2.getDate_add().toUpperCase());
+        }
+    };
+
 }
